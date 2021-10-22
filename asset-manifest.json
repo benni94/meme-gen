@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8c0282c4.chunk.css",
+    "main.js": "/static/js/main.9463f484.chunk.js",
+    "main.js.map": "/static/js/main.9463f484.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.9021ffcf.js",
+    "runtime-main.js.map": "/static/js/runtime-main.9021ffcf.js.map",
+    "static/js/2.849ad890.chunk.js": "/static/js/2.849ad890.chunk.js",
+    "static/js/2.849ad890.chunk.js.map": "/static/js/2.849ad890.chunk.js.map",
+    "static/js/3.eb18ea4a.chunk.js": "/static/js/3.eb18ea4a.chunk.js",
+    "static/js/3.eb18ea4a.chunk.js.map": "/static/js/3.eb18ea4a.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.8c0282c4.chunk.css.map": "/static/css/main.8c0282c4.chunk.css.map",
+    "static/js/2.849ad890.chunk.js.LICENSE.txt": "/static/js/2.849ad890.chunk.js.LICENSE.txt",
+    "static/media/Trollface.c371feba.png": "/static/media/Trollface.c371feba.png",
+    "static/media/rand.0757221b.jpeg": "/static/media/rand.0757221b.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9021ffcf.js",
+    "static/js/2.849ad890.chunk.js",
+    "static/css/main.8c0282c4.chunk.css",
+    "static/js/main.9463f484.chunk.js"
+  ]
+}
