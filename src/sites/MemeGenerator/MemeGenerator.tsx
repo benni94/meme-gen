@@ -69,7 +69,7 @@ const MemeGenerator: React.FC<IMemeGeneratorProps> = () => {
             <form className="meme-form" onSubmit={handleSubmit}>
                 <input type="text" placeholder="Top" value={topText} onChange={e => setTopText(e.target.value)} />
                 <input type="text" placeholder="Bottom" value={bottomText} onChange={e => setBottomText(e.target.value)} />
-                <Button variant="contained">Download</Button>
+                <Button variant="contained" onClick={handleSubmit}>Download</Button>
             </form>
 
             <div className="meme" id="memeForm">
