@@ -1,23 +1,50 @@
-import React, {  useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './../../Styles/globstyle.css';
 import domtoimage from 'dom-to-image';
 import { Loading } from '../../components/Loading/Loading';
 import logo from './../../assets/images/rand.jpeg';
+import { Searchbar } from '../../components/SearchBar/Searchbar';
+import { Button } from '@mui/material';
 
 export type IMemeGeneratorProps = {
 
 }
 
+
 const MemeGenerator: React.FC<IMemeGeneratorProps> = () => {
-    const [search, setSearch] = useState("");
     const [topText, setTopText] = useState("");
     const [bottomText, setBottomText] = useState("");
-    const [randomImage, setRandomImage] = useState(""); //http://urlme.me/rand
+    const [randomImage, setRandomImage] = useState("");
     const [loading, setLoading] = useState(false);
+
+    const [allMemeImgs, setAllMemeImgs] = useState([]);
+
+    useEffect(() => {
+        setLoading(true);
+        fetch("https://api.imgflip.com/get_memes")
+            .then(response => response.json())
+            .then(response => {
+                let memes = response.data.memes.map((data: any) => {
+                    return {
+                        box_count: data.box_count,
+                        height: data.height,
+                        id: Number(data.id),
+                        name: data.name,
+                        url: data.url,
+                        width: data.width
+                    }
+                })
+                setAllMemeImgs(memes);
+                setTimeout(() => {
+                    setLoading(false);
+
+                }, 1000);
+            })
+    }, []);
 
 
     const handleSubmit = (e: any) => {
-        e.preventDefault();     // don't refresh the page 
+        e.preventDefault();    
         domtoimage.toJpeg(document.getElementById('memeForm') as HTMLElement, { quality: 0.95 })
             .then(function (dataUrl) {
                 var link = document.createElement('a');
@@ -27,43 +54,30 @@ const MemeGenerator: React.FC<IMemeGeneratorProps> = () => {
             });
     }
 
-    const handleSearch = (e: any) => {
-        e.preventDefault();
-        setLoading(true);
-        generateImage();
-    }
-
-    function generateImage() {
-        fetch(`https://cors-proxy404.herokuapp.com/https://urlme.me/${search}/`)
-            .then(res => res.blob()) // Gets the response and returns it as a blob
-            .then(blob => {
-                let objectURL = URL.createObjectURL(blob);
-                setRandomImage(objectURL)
-            })
-            .then(() => {
-                setTimeout(() => {
-                    setLoading(false);
-                }, 1000);
-            })
+    function getSearch(event) {
+        setRandomImage(event.url)
     }
 
     return (
+
         <div style={{ marginLeft: "10px", marginRight: "10px" }}>
-            <form className="meme-form" style={{ justifyContent: "normal" }} onSubmit={handleSearch}>
-                <input type="text" placeholder="Search" value={search} onChange={e => { setSearch(e.target.value) }} />
-                <button >Search</button>
-            </form>
+
+            <br />
+            <br />
+            <Searchbar getData={allMemeImgs} setData={getSearch} />
+        <br />
             <form className="meme-form" onSubmit={handleSubmit}>
                 <input type="text" placeholder="Top" value={topText} onChange={e => setTopText(e.target.value)} />
                 <input type="text" placeholder="Bottom" value={bottomText} onChange={e => setBottomText(e.target.value)} />
-                <button>Download</button>
+                <Button variant="contained">Download</Button>
             </form>
+
             <div className="meme" id="memeForm">
-                <img src={randomImage===""? logo:randomImage} alt="" /> {/* {randomImage} */}
+                <img src={randomImage === "" ? logo : randomImage} alt="" /> {/* {randomImage} */}
                 <h2 className="top">{topText}</h2>
                 <h2 className="bottom">{bottomText}</h2>
             </div>
-
+            <br />
             <Loading isLoading={loading} />
         </div>
     );
