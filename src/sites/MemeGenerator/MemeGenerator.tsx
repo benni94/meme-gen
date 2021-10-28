@@ -6,6 +6,7 @@ import logo from './../../assets/images/rand.jpeg';
 import { Searchbar } from '../../components/SearchBar/Searchbar';
 import { Button } from '@mui/material';
 import { TextMove } from '../../components/TextMove/TextMove';
+import { DragDropImg } from '../../components/DragDropImg/DragDropImg';
 
 export type IMemeGeneratorProps = {
 
@@ -47,7 +48,7 @@ const MemeGenerator: React.FC<IMemeGeneratorProps> = () => {
     const handleSubmit = (e: any) => {
         e.preventDefault();
         domtoimage.toJpeg(document.getElementById('memeForm') as HTMLElement, { quality: 1 })
-            .then(function (dataUrl) {
+            .then((dataUrl) => {
                 const link = document.createElement('a');
                 link.download = 'beniMeme.jpeg';
                 link.href = dataUrl;
@@ -57,6 +58,10 @@ const MemeGenerator: React.FC<IMemeGeneratorProps> = () => {
 
     function getSearch(event) {
         setRandomImage(event.url)
+    }
+
+    function handleInputImg(getImg:string){
+        setRandomImage(getImg);
     }
 
     return (
@@ -78,16 +83,29 @@ const MemeGenerator: React.FC<IMemeGeneratorProps> = () => {
 
             <div
                 ref={el => {
-                        if (!el) return;
-                        setparentX(el.getBoundingClientRect().width);
-                        setparentY(el.getBoundingClientRect().height-50);
-                  
+                    if (!el) return;
+                    setparentX(el.getBoundingClientRect().width);
+                    setparentY(el.getBoundingClientRect().height - 50);
+
                 }}
                 className="meme" id="memeForm" >
-                <TextMove inputText={topText} startPosition={{x:parentX,y:0}}/>
-                <TextMove inputText={bottomText} startPosition={{x:parentX,y:parentY}}/>
-                <img src={randomImage === "" ? logo : randomImage} alt="" />
+
+                <TextMove inputText={topText} startPosition={{ x: parentX, y: 0 }} />
+                <TextMove inputText={bottomText} startPosition={{ x: parentX, y: parentY }} />
+                <img src={randomImage === "" ? logo : randomImage} alt="Meme" />
+
+                <br />
+
+
             </div>
+
+            <div>
+              <DragDropImg loadImg={handleInputImg}/>
+            </div>
+
+            
+            <br />
+
 
             <Loading isLoading={loading} />
 

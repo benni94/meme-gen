@@ -1,0 +1,27 @@
+.inputImgHolder {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.custom-file-upload {
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    display: inline-block;
+    padding: 20px;
+    cursor: pointer;
+    background-color: lightblue;
+}
+
+.inputImg {
+    background-image: url('../../assets/svg/cloud-upload-svgrepo-com.svg');
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    padding:12px;
+    padding-top: 0px;
+}
