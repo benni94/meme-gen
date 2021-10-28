@@ -15,14 +15,14 @@ const Searchbar: React.FC<ISearchbarProps> = ({ getData, setData }) => {
     }, [getData]);
 
 
-    const handleOnSearch = (string, results) => {
-        // onSearch will have as the first callback parameter
-        // the string searched and for the second the results.
-    }
+    /*     const handleOnSearch = (string, results) => {
+            // onSearch will have as the first callback parameter
+            // the string searched and for the second the results.
+        } */
 
-    const handleOnHover = (result) => {
+    /* const handleOnHover = (result) => {
         // the item hovered
-    }
+    } */
 
     const handleOnSelect = (item) => {
         // the item selected
@@ -30,7 +30,7 @@ const Searchbar: React.FC<ISearchbarProps> = ({ getData, setData }) => {
     }
 
     const handleOnFocus = () => {
-       // console.log('Focused')
+        // console.log('Focused')
     }
 
     const formatResult = (item) => {
@@ -41,11 +41,14 @@ const Searchbar: React.FC<ISearchbarProps> = ({ getData, setData }) => {
 
     return (
         <div>
+            {/* 
+             onSearch={handleOnSearch}
+             onHover={handleOnHover}
+            */}
             <ReactSearchAutocomplete
                 placeholder="Search"
                 items={items}
-                onSearch={handleOnSearch}
-                onHover={handleOnHover}
+
                 onSelect={handleOnSelect}
                 onFocus={handleOnFocus}
                 autoFocus
@@ -56,8 +59,8 @@ const Searchbar: React.FC<ISearchbarProps> = ({ getData, setData }) => {
                         "iconColor": "#48EDDD",
                         "borderRadius": "4px",
                         "boxShadow": "none",
-                        "zIndex":"2",
-                        "fontSize":"x-large",
+                        "zIndex": "4",
+                        "fontSize": "x-large",
                         "fontFamily": "VT323, monospace"
                     }
                 }

@@ -16,7 +16,7 @@ const override = css`
 
 const Loading: React.FC<ILoadingProps> = ({isLoading }) => {
 
-    let [loading, setLoading] = useState(isLoading);
+    const [loading, setLoading] = useState(isLoading);
 
     useEffect(() => {
         setLoading(isLoading)

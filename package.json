@@ -14,11 +14,16 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "colormap": "^2.3.2",
     "dom-to-image": "^2.6.0",
+    "eslint": "^7.11.0",
     "react": "^17.0.2",
+    "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^17.0.2",
+    "react-drag-and-drop": "^3.0.0",
     "react-scripts": "4.0.3",
     "react-search-autocomplete": "^5.4.2",
+    "react-sortable-hoc": "^2.0.0",
     "react-spinners": "^0.11.0",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
@@ -50,7 +55,12 @@
     ]
   },
   "devDependencies": {
+    "@types/colormap": "^2.3.1",
     "@types/dom-to-image": "^2.6.3",
+    "@types/react-beautiful-dnd": "^13.1.2",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
+    "eslint-plugin-react": "^7.26.1",
     "gh-pages": "^3.2.3"
   }
 }
