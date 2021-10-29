@@ -16,8 +16,8 @@ const DragDropImg: React.FC<IDragDropImgProps> = ({loadImg}) => {
         <div className="inputImgHolder">
             <label className="custom-file-upload">
             <input   type="file" onChange={handleInputImg} />
-            <i className="inputImg" style={{padding:"10px"}}></i>
-            <i >Custom Upload</i> 
+            <i className="inputImg" ></i>
+            <i className="inputText">Custom Upload</i> 
             </label>
         </div> 
     );

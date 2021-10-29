@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './../../Styles/globstyle.css';
 import domtoimage from 'dom-to-image';
 import { Loading } from '../../components/Loading/Loading';
@@ -6,6 +6,8 @@ import logo from './../../assets/images/rand.jpeg';
 import { Searchbar } from '../../components/SearchBar/Searchbar';
 import { Button } from '@mui/material';
 import { TextMove } from '../../components/TextMove/TextMove';
+import { DragUpDown } from '../../components/DragUpDown/DragUpDown';
+import { ArrowsUpDown } from '../../components/DragUpDown/ArrowsUpDown';
 import { DragDropImg } from '../../components/DragDropImg/DragDropImg';
 
 export type IMemeGeneratorProps = {
@@ -21,6 +23,7 @@ const MemeGenerator: React.FC<IMemeGeneratorProps> = () => {
     const [allMemeImgs, setAllMemeImgs] = useState([]);
     const [parentX, setparentX] = useState(0);
     const [parentY, setparentY] = useState(0);
+    const [blackSize, setBlackSize] = useState(0);
 
     useEffect(() => {
         setLoading(true);
@@ -45,6 +48,10 @@ const MemeGenerator: React.FC<IMemeGeneratorProps> = () => {
             })
     }, []);
 
+    useEffect(() => {
+        return () => clearInterval();
+    });
+
     const handleSubmit = (e: any) => {
         e.preventDefault();
         domtoimage.toJpeg(document.getElementById('memeForm') as HTMLElement, { quality: 1 })
@@ -60,9 +67,22 @@ const MemeGenerator: React.FC<IMemeGeneratorProps> = () => {
         setRandomImage(event.url)
     }
 
+    function arrowMoved(e: number) {
+        setBlackSize(e);
+    }
+
+    function checkParentSize(el) {
+        if (!el) return;
+        setInterval(() => {
+            setparentX(el.getBoundingClientRect().width);
+            setparentY(el.getBoundingClientRect().height - 50);
+        }, 400);
+    }
+
     function handleInputImg(getImg:string){
         setRandomImage(getImg);
     }
+
 
     return (
         <div style={{ marginLeft: "10px", marginRight: "10px" }}>
@@ -82,31 +102,23 @@ const MemeGenerator: React.FC<IMemeGeneratorProps> = () => {
             <br />
 
             <div
-                ref={el => {
-                    if (!el) return;
-                    setparentX(el.getBoundingClientRect().width);
-                    setparentY(el.getBoundingClientRect().height - 50);
-
-                }}
+                ref={el => { checkParentSize(el) }}
                 className="meme" id="memeForm" >
 
                 <TextMove inputText={topText} startPosition={{ x: parentX, y: 0 }} />
                 <TextMove inputText={bottomText} startPosition={{ x: parentX, y: parentY }} />
-                <img src={randomImage === "" ? logo : randomImage} alt="Meme" />
 
-                <br />
+                <DragUpDown getX={Number(parentX)} getY={0} offsetY={Number(blackSize)} />
 
+                <img style={{ display: 'block' }} src={randomImage === "" ? logo : randomImage} alt="Meme" />
+                <DragUpDown getX={Number(parentX)} getY={0} offsetY={Number(blackSize)} />
 
             </div>
 
-            <div>
-              <DragDropImg loadImg={handleInputImg}/>
-            </div>
-
-            
+            <ArrowsUpDown arrowDrive={arrowMoved} />
             <br />
-
-
+            <br />
+            <DragDropImg loadImg={handleInputImg}/>
             <Loading isLoading={loading} />
 
         </div>

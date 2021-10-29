@@ -19,6 +19,7 @@ header {
 
 header>img {
   height: 80%;
+  width: auto;
   margin-left: 10%;
 }
 
@@ -35,6 +36,7 @@ header>p {
 
 .meme>img {
   width: 100%;
+  height: auto;
 }
 
 .meme>h2 {

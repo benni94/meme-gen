@@ -18,10 +18,19 @@ input[type="file"] {
     background-color: lightblue;
 }
 
+.custom-file-upload:hover{
+    opacity: 0.6;
+}
+
 .inputImg {
     background-image: url('../../assets/svg/cloud-upload-svgrepo-com.svg');
-    background-size: 24px 24px;
     background-repeat: no-repeat;
     padding:12px;
-    padding-top: 0px;
+    padding-top: 1px;
+    margin-right: 3px;
+}
+
+.inputText{
+    font-family: VT323, monospace;
+    font-weight: 600;
 }

@@ -1,0 +1,38 @@
+.UpDownHolder {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+}
+
+.UpDownArrowHolder{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.UpDownArrow {
+    border-radius: 7px;
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin: 10px;
+    box-shadow: rgba(138, 135, 135, 0.24) 0px 3px 8px;
+    text-align: center;
+}
+
+.UpDownArrow:active {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.dragger {
+    cursor: pointer;
+    border: 2p solid black;
+    font-size: 1rem;
+    float: right;
+    margin: 0;
+}

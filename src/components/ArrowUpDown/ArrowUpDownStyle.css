@@ -1,0 +1,21 @@
+.arrow-up-down-holder{
+    text-align: center;
+}
+
+.arrowUpDown{
+    border-radius: 100%;
+    border:none;
+    background-color: transparent;
+    font-size: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    margin:10px;
+    box-shadow: rgba(138, 135, 135, 0.24) 0px 3px 8px;
+
+}
+
+.arrowUpDown:active{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}

@@ -16,8 +16,8 @@ export type ITextMoveProps = {
 
 const TextMove: React.FC<ITextMoveProps> = ({ inputText, startPosition }) => {
 
-    const [pressed, setPressed] = useState(false)
-    const [position, setPosition] = useState({ x: 0, y: 0 })
+    const [pressed, setPressed] = useState(false);
+    const [position, setPosition] = useState({ x: 0, y: 0 });
     const ref = useRef() as any;
     const [text, setText] = useState("Write...");
 
@@ -50,7 +50,6 @@ const TextMove: React.FC<ITextMoveProps> = ({ inputText, startPosition }) => {
     }, [inputText]);
 
     let previousTouch;
-    // Update the current position if mouse is down
     const onMouseMove = (event) => {
         if (pressed) {
 

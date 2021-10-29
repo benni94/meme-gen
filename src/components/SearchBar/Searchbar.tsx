@@ -29,9 +29,9 @@ const Searchbar: React.FC<ISearchbarProps> = ({ getData, setData }) => {
         setData(item);
     }
 
-    const handleOnFocus = () => {
+    /* const handleOnFocus = () => {
         // console.log('Focused')
-    }
+    } */
 
     const formatResult = (item) => {
         return item;
@@ -44,13 +44,14 @@ const Searchbar: React.FC<ISearchbarProps> = ({ getData, setData }) => {
             {/* 
              onSearch={handleOnSearch}
              onHover={handleOnHover}
+               onFocus={handleOnFocus}
             */}
             <ReactSearchAutocomplete
                 placeholder="Search"
                 items={items}
 
                 onSelect={handleOnSelect}
-                onFocus={handleOnFocus}
+
                 autoFocus
                 formatResult={formatResult}
                 styling={
