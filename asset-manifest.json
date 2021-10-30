@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/meme-gen/static/css/main.b609dd38.chunk.css",
-    "main.js": "/meme-gen/static/js/main.51f9d31e.chunk.js",
-    "main.js.map": "/meme-gen/static/js/main.51f9d31e.chunk.js.map",
-    "runtime-main.js": "/meme-gen/static/js/runtime-main.d08f5bb6.js",
-    "runtime-main.js.map": "/meme-gen/static/js/runtime-main.d08f5bb6.js.map",
-    "static/js/2.315fb060.chunk.js": "/meme-gen/static/js/2.315fb060.chunk.js",
-    "static/js/2.315fb060.chunk.js.map": "/meme-gen/static/js/2.315fb060.chunk.js.map",
-    "static/js/3.0978fa7c.chunk.js": "/meme-gen/static/js/3.0978fa7c.chunk.js",
-    "static/js/3.0978fa7c.chunk.js.map": "/meme-gen/static/js/3.0978fa7c.chunk.js.map",
+    "main.css": "/meme-gen/static/css/main.72ca0366.chunk.css",
+    "main.js": "/meme-gen/static/js/main.5f2c0066.chunk.js",
+    "main.js.map": "/meme-gen/static/js/main.5f2c0066.chunk.js.map",
+    "runtime-main.js": "/meme-gen/static/js/runtime-main.f70471ad.js",
+    "runtime-main.js.map": "/meme-gen/static/js/runtime-main.f70471ad.js.map",
+    "static/js/2.077e5e54.chunk.js": "/meme-gen/static/js/2.077e5e54.chunk.js",
+    "static/js/2.077e5e54.chunk.js.map": "/meme-gen/static/js/2.077e5e54.chunk.js.map",
+    "static/js/3.3fe3659e.chunk.js": "/meme-gen/static/js/3.3fe3659e.chunk.js",
+    "static/js/3.3fe3659e.chunk.js.map": "/meme-gen/static/js/3.3fe3659e.chunk.js.map",
     "index.html": "/meme-gen/index.html",
-    "static/css/main.b609dd38.chunk.css.map": "/meme-gen/static/css/main.b609dd38.chunk.css.map",
-    "static/js/2.315fb060.chunk.js.LICENSE.txt": "/meme-gen/static/js/2.315fb060.chunk.js.LICENSE.txt",
+    "static/css/main.72ca0366.chunk.css.map": "/meme-gen/static/css/main.72ca0366.chunk.css.map",
+    "static/js/2.077e5e54.chunk.js.LICENSE.txt": "/meme-gen/static/js/2.077e5e54.chunk.js.LICENSE.txt",
     "static/media/Trollface.c371feba.png": "/meme-gen/static/media/Trollface.c371feba.png",
     "static/media/DragDropStyle.css": "/meme-gen/static/media/cloud-upload-svgrepo-com.d43b32d0.svg",
     "static/media/rand.0757221b.jpeg": "/meme-gen/static/media/rand.0757221b.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.d08f5bb6.js",
-    "static/js/2.315fb060.chunk.js",
-    "static/css/main.b609dd38.chunk.css",
-    "static/js/main.51f9d31e.chunk.js"
+    "static/js/runtime-main.f70471ad.js",
+    "static/js/2.077e5e54.chunk.js",
+    "static/css/main.72ca0366.chunk.css",
+    "static/js/main.5f2c0066.chunk.js"
   ]
 }
