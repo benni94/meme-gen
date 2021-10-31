@@ -1,7 +1,10 @@
-.sweet-loading{
+.sweet-loading {
     position: absolute;
     left: 40%;
-    top: 50%;
-    transform: translate(-50%,-50%);
+    top: 60%;
     z-index: 100;
+}
+
+.css-13t9evx {
+    box-shadow: rgba(155, 151, 151, 0.35) -5px 5px 5px;
 }

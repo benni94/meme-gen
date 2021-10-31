@@ -3,18 +3,18 @@ import './DragUpDownStyle.css';
 
 export type IDragUpDownProps = {
     getX: number;
-    getY:number;
-    offsetY:number;
+    getY: number;
+    offsetY: number;
+    getColor: string;
 }
 
-const DragUpDown: React.FC<IDragUpDownProps> = ({ getX , getY, offsetY}) => {
+const DragUpDown: React.FC<IDragUpDownProps> = ({ getX, getY, offsetY, getColor }) => {
 
     const [y, setY] = useState(0);
     const [x, setX] = useState(0);
+    const [color, setColor] = useState("#000000");
 
     useEffect(() => {
-        console.log(getX);
-        
         setX(getX);
     }, [getX]);
 
@@ -23,14 +23,25 @@ const DragUpDown: React.FC<IDragUpDownProps> = ({ getX , getY, offsetY}) => {
     }, [getY]);
 
     useEffect(() => {
-        if(typeof(offsetY)==="number"&&offsetY>-10){
-            setY(y+offsetY);
+        if (typeof (offsetY) === "number" && (y >= -30 || offsetY >= 0)) {
+            setY(y + offsetY);
+
+            //remove the line at the end 
+            if (offsetY + y < 0) {
+                setY(0)
+            }
+
         }
-    }, [offsetY]); 
+    }, [offsetY]);
+
+    useEffect(() => {
+        setColor(getColor);
+    }, [getColor]);
 
     const boxStyle = {
         width: `${x}px`,
         height: `${y}px`,
+        backgroundColor: color
     };
 
     return (
@@ -38,7 +49,7 @@ const DragUpDown: React.FC<IDragUpDownProps> = ({ getX , getY, offsetY}) => {
             className="UpDownHolder"
             style={boxStyle}
         >
-       
+
         </div>
     );
 }

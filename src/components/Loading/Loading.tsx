@@ -19,17 +19,12 @@ const Loading: React.FC<ILoadingProps> = ({isLoading }) => {
     const [loading, setLoading] = useState(isLoading);
 
     useEffect(() => {
-        setLoading(isLoading)
+        setLoading(isLoading);
     }, [isLoading]);
-
-    //let [color, setColor] = useState("yellow");
 
     return (
         <div className="sweet-loading">
-            {/*   <button onClick={() => setLoading(!loading)}>Toggle Loader</button>
-            <input value={color} onChange={(input) => setColor(input.target.value)} placeholder="Color of the loader" /> */}
-
-            <PacmanLoader color={"yellow"} loading={loading} css={override}  size={100} />
+            <PacmanLoader color={"#FBD000"}  loading={loading} css={override}  size={50} />
         </div>
     );
 }

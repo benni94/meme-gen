@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useScrollBlock } from '../../services/BlockScroll/UseScrollBlock';
 import './DragUpDownStyle.css';
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 
 export type IArrowsUpDownProps = {
     arrowDrive:(e:number)=>void;
@@ -14,11 +16,9 @@ const ArrowsUpDown: React.FC<IArrowsUpDownProps> = ({arrowDrive}) => {
     const onMouseMove = (event) => {
         if (pressed) {
 
-            switch (event.movementX !== undefined) {
+            switch (event.movementX !== undefined) {                
                 case true:
-
                     arrowDrive(event.movementY/1.5);
-                    
                     break;
                 case false:
                     var touch = event.touches[0];
@@ -46,7 +46,7 @@ const ArrowsUpDown: React.FC<IArrowsUpDownProps> = ({arrowDrive}) => {
             className="UpDownArrowHolder"
         >
             <button className="UpDownArrow" >
-                ⬆⬇
+            <ArrowUpwardIcon /><ArrowDownwardIcon />
             </button>
         </div>
     );

@@ -16,7 +16,9 @@ const App: React.FC<IAppProps> = () => {
       <div style={{ maxWidth: '700px', margin: '0 auto' }}>
         <MemeGenerator />
       </div>
+      <div style={{marginTop:"30px"}}>
       <Footer />
+      </div>
     </div>
   );
 }

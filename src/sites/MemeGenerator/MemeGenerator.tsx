@@ -9,6 +9,8 @@ import { TextMove } from '../../components/TextMove/TextMove';
 import { DragUpDown } from '../../components/DragUpDown/DragUpDown';
 import { ArrowsUpDown } from '../../components/DragUpDown/ArrowsUpDown';
 import { DragDropImg } from '../../components/DragDropImg/DragDropImg';
+import { SelectorWrapper } from '../../components/Selector/SelectorWrapper';
+import { ColorPalette } from '../../components/ColorPalette/ColorPalette';
 
 export type IMemeGeneratorProps = {
 
@@ -24,6 +26,8 @@ const MemeGenerator: React.FC<IMemeGeneratorProps> = () => {
     const [parentX, setparentX] = useState(0);
     const [parentY, setparentY] = useState(0);
     const [blackSize, setBlackSize] = useState(0);
+    const [fontSize, setFontSize] = useState("1");
+    const [color, setColor] = useState("#000000");
 
     useEffect(() => {
         setLoading(true);
@@ -79,8 +83,16 @@ const MemeGenerator: React.FC<IMemeGeneratorProps> = () => {
         }, 400);
     }
 
-    function handleInputImg(getImg:string){
+    function handleInputImg(getImg: string) {
         setRandomImage(getImg);
+    }
+
+    function setSize(e: any) {
+        setFontSize(e.target.value.toString());
+    }
+
+    function changeColor(e: string) {
+        setColor(e);
     }
 
 
@@ -99,27 +111,34 @@ const MemeGenerator: React.FC<IMemeGeneratorProps> = () => {
             </form>
 
             <br />
+
+            <SelectorWrapper setSelect={(e) => setSize(e)} />
+
             <br />
+            <br />
+
+            <ColorPalette changeColorHex={changeColor} />
 
             <div
                 ref={el => { checkParentSize(el) }}
                 className="meme" id="memeForm" >
 
-                <TextMove inputText={topText} startPosition={{ x: parentX, y: 0 }} />
-                <TextMove inputText={bottomText} startPosition={{ x: parentX, y: parentY }} />
+                <TextMove getFontSize={fontSize} inputText={topText} startPosition={{ x: parentX, y: 0 }} />
+                <TextMove getFontSize={fontSize} inputText={bottomText} startPosition={{ x: parentX, y: parentY }} />
 
-                <DragUpDown getX={Number(parentX)} getY={0} offsetY={Number(blackSize)} />
+                <DragUpDown getX={Number(parentX)} getY={0} offsetY={Number(blackSize)} getColor={color} />
 
                 <img style={{ display: 'block' }} src={randomImage === "" ? logo : randomImage} alt="Meme" />
-                <DragUpDown getX={Number(parentX)} getY={0} offsetY={Number(blackSize)} />
+                <DragUpDown getX={Number(parentX)} getY={0} offsetY={Number(blackSize)} getColor={color.toString()} />
 
             </div>
 
             <ArrowsUpDown arrowDrive={arrowMoved} />
             <br />
             <br />
-            <DragDropImg loadImg={handleInputImg}/>
+            <DragDropImg loadImg={handleInputImg} />
             <Loading isLoading={loading} />
+
 
         </div>
     );

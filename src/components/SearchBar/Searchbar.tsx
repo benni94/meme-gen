@@ -30,7 +30,7 @@ const Searchbar: React.FC<ISearchbarProps> = ({ getData, setData }) => {
     }
 
     /* const handleOnFocus = () => {
-        // console.log('Focused')
+        // ('Focused')
     } */
 
     const formatResult = (item) => {

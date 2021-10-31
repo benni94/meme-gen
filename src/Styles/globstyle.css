@@ -123,6 +123,7 @@ small {
   top: 70px;
 }
 
+
 @media only screen and (max-width: 600px) {
   header {
     display: block;

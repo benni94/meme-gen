@@ -11,32 +11,42 @@ interface IPos {
 export type ITextMoveProps = {
     inputText: string;
     startPosition: IPos;
+    getFontSize: string;
 }
 
 
-const TextMove: React.FC<ITextMoveProps> = ({ inputText, startPosition }) => {
+const TextMove: React.FC<ITextMoveProps> = ({ inputText, startPosition, getFontSize }) => {
 
     const [pressed, setPressed] = useState(false);
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const ref = useRef() as any;
     const [text, setText] = useState("Write...");
-
+    const [fontSize, setFontSize] = useState("2");
     const [blockScroll, allowScroll] = useScrollBlock();
+    const [parentX, setParentX] = useState(0);
 
     useEffect(() => {
-        let minus=0;
-        let offset=0;
-        if(startPosition.y>0){
-            offset=50;
-            minus=ref.current.clientHeight;
+        setParentX(startPosition.x);
+
+        if (parentX < 400 && parentX !== 0) {
+            setFontSize((Number(getFontSize) / 1.5).toString());
+        }
+        else {
+            setFontSize(getFontSize);
+        }
+
+        let minus = 0;
+        let offset = 0;
+        if (startPosition.y > 0) {
+            offset = 50;
+            minus = ref.current.clientHeight;
         }
         //set the position of the child in the center of the parent         
         setPosition({
             x: (startPosition.x - ref.current.clientWidth) / 2,
-            y: (startPosition.y+offset)-minus
+            y: (startPosition.y + offset) - minus
         });
     }, [startPosition]);
-
 
     // Monitor changes to position state and update DOM
     useEffect(() => {
@@ -93,7 +103,7 @@ const TextMove: React.FC<ITextMoveProps> = ({ inputText, startPosition }) => {
             onMouseUp={() => setPressed(false)}
             onMouseLeave={() => setPressed(false)}
         >
-            <h2 className="inputText">{text}</h2>
+            <h2 className="inputText" style={{ fontSize: fontSize + "em" }}>{text}</h2>
 
         </div>
     );
